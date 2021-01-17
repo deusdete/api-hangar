@@ -6,7 +6,7 @@ const PostSchema = new mongoose.Schema({
     ref: 'User',
     require: true
   },
-  imgSrc: {
+  image: {
     type: String,
   },
   comments: [{
@@ -43,8 +43,15 @@ const PostSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+},{
+  toJSON: {
+    virtuals: true
+  }
 });
 
+PostSchema.virtual('image_url').get(function() {
+  return `http://localhost:3333/uploads/${this.image}`
+})
 
 const Post = mongoose.model('Post', PostSchema);
 

@@ -11,6 +11,8 @@ package-lock.json
 
 # production
 /build
+/uploads/*
+!uploads/.gitkeep
 
 # env
 .env
