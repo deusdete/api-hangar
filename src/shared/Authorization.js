@@ -1,6 +1,7 @@
 const auth = require('../auth')
 const Authorization = (req, res, next) => {
   req.user = {}
+ 
   if(req.headers.authorization && req.headers.authorization.startsWith('Bearer ')){
     token = req.headers.authorization.split('Bearer ')[1];
   }else{

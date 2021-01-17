@@ -6,7 +6,7 @@ require('dotenv').config();
 module.exports = {
   async register (req, res) {
     const { email } = req.body;
-    console.log(email);
+
     try {
       if(await User.findOne({email})){
         return res.status(400).json({error: 'Usuário já existe'});
@@ -27,7 +27,7 @@ module.exports = {
 
   async login (req, res) {
     const { email, password } = req.body;
-    
+  
     const user = await User.findOne({email}).select('+password');
     if(!user){
       return res.status(400).json({error: 'Usuário não encontrado'})

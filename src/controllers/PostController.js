@@ -5,7 +5,7 @@ module.exports = {
   async getPosts(req, res) {
     try {
 
-      const posts = await Post.find({})
+      const posts = await Post.find({}).populate('posted_by', 'username')
 
       return res.status(200).json({ posts })
     } catch (error) {
@@ -30,7 +30,7 @@ module.exports = {
 
     try {
       const postFields = {
-        img_src: req.file.filename,
+        image: req.file.filename,
         title,
         text,
         posted_by: id_user
