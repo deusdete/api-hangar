@@ -12,6 +12,8 @@ router.post('/auth/register', AuthController.register);
 
 router.get('/empresas', EmpresaController.getEmpresas);
 router.get('/empresas/:idEmpresa', EmpresaController.getEmpresa);
-router.post('/empresas', Authorization, EmpresaController.registerEmpresa)
+router.post('/empresas', Authorization, EmpresaController.registerEmpresa);
+router.put('/empresas/:idEmpresa', Authorization, EmpresaController.updateEmpresa);
+router.delete('/empresas/:idEmpresa', Authorization, EmpresaController.deleteEmpresa);
 
 module.exports = router;
