@@ -9,7 +9,7 @@ const Authorization = (req, res, next) => {
   try {
     const decodeToken = auth.verify(token);
     //Modifique para pegar os paramentos desejados
-    req.useId = decodeToken.id;
+    req.id_user = decodeToken.id;
     return next()
   } catch (err) {
     console.error(err)
