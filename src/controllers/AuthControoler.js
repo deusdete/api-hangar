@@ -39,7 +39,7 @@ module.exports = {
 
     user.password = undefined;
 
-    const token = auth.sign({id: user._id});
+    const token = auth.sign({id: user._id, username: user.username});
 
     return res.status(200).json({user, token})
   }

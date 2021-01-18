@@ -43,26 +43,12 @@ module.exports = {
       return res.status(400).json({ error: "Falha ao criar Post" })
     }
   },
-//   async updatePost(req, res) {
-//     const { idEmpresa } = req.params
 
-//     try {
-//       if (!await Empresa.findById(idEmpresa)) {
-//         return res.status(404).json({ error: 'Empresa não existe' });
-//       }
-
-//       const empresa = await Empresa.updateOne({_id: idEmpresa},{ ...req.body });
-
-//       return res.status(200).json({ empresa })
-//     } catch (error) {
-//       console.log(error)
-//       return res.status(400).json({ error: "Falha ao atualizar Empresa" })
-//     }
-//   },
   async deletePost(req, res) {
     const { idPost } = req.params
 
     try {
+        
       if (!await Post.findById(idPost)) {
         return res.status(404).json({ error: 'Post não existe' });
       }
