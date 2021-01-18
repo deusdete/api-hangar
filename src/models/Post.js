@@ -50,7 +50,7 @@ const PostSchema = new mongoose.Schema({
 });
 
 PostSchema.virtual('image_url').get(function() {
-  return `http://localhost:3333/uploads/${this.image}`
+  return `${process.env.BASE_URL_UPLOADS_API}/${this.image}`
 })
 
 const Post = mongoose.model('Post', PostSchema);
