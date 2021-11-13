@@ -11,7 +11,7 @@ module.exports = {
 
       const hash = crypto.randomBytes(5).toString('hex')
 
-      cb(null, `${hash}-${name}${ext}`);
+      cb(null, `${hash}${ext}`);
     },
   }),
 }
